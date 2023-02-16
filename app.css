@@ -52,7 +52,7 @@
   max-height: fit-content;
   padding: 0px;
 }
-.restraunt_list {
+.restrauntlist {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;

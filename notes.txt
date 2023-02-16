@@ -1,0 +1,176 @@
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { restraunt_list } from "../config"; what is .. in "../config"
+
+// Default import
+
+
+import Header from "./components/Header";
+
+
+/**here Header name can be changed ex.Newheader bcoz it is default
+ * but "./components/Header" here can't
+ * ex.  import NewHeader from "./components/Header";
+ * 
+ * import Header from "./components/Header.js"; this will also work.
+ * 
+ * if u want to name as .jsx file name 
+ * ex. import Header from "./components/Header.jsx";
+ * here Header.jsx  is folder name it should match with that folder
+ * but some of the external libraries track the file using extension in that it may cause some problem but it happens rarely
+ * 
+ * 
+ -----------------------------------------------------------------*/
+
+// Named import
+
+-->import { Title } from "./components/Header";
+
+ *import Header ,{ Title } from "./components/Header";
+  here Title    exported by name and Header by default.
+ *  import { Title ,Header } from "./components/Header";  
+    when both are exported by name
+ ----------------------------------------------------------
+
+// Imports all components from  "./components/Header".
+//used as <Obj.Header/> it will also work but export should done by name
+//---->import * as Obj from "./components/Header";
+//-----------------------------------------------------------
+
+const restraunt_list = [
+  {
+    type: "restaurant",
+    data: {
+      type: "F",
+      id: "254117",
+      name: "McDonald's",
+      uuid: "d998283f-9ac1-4064-92e0-1f7bc38f4f77",
+      city: "4",
+      area: "Tilak Nagar",
+      totalRatingsString: "1000+ ratings",
+      cloudinaryImageId: "1293a58ab5610f4c730c3d8cb6ac1b65",
+      cuisines: ["American"],
+  },
+];
+//----------CONFIG DRIVEN UI--------------
+//const RestrauntCard = (props) => {
+// const RestrauntCard = ({ restaurant }) => {
+const RestrauntCard = ({
+  name,
+  cuisines,
+  totalRatingsString,
+  cloudinaryImageId,
+}) => {
+  //const { name, cuisines, totalRatingsString, cloudinaryImageId } =restaurant.data;
+  return (
+    <div className="card">
+      <img
+        src={
+          "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/" +
+          cloudinaryImageId
+        }
+        alt="Mc restraunt_list's Burger"
+      ></img>
+      <div className="card_text">
+        <h1>{name}</h1>
+        <h2>{cuisines.join(", ")}</h2>
+        <h2>{totalRatingsString}⭐</h2>
+      </div>
+
+      {/* runs for normal function call as example
+        <h1>{props.data?.name}</h1>
+        <h2>{props.data?.cuisines.join(", ")}</h2>
+        <h2>{props.data?.totalRatingsString}⭐</h2>
+        <h2>{props.data?.totalRatingsString}⭐</h2> }
+
+             //hardcoded data    
+      <img
+        src="https://b.zmtcdn.com/data/pictures/chains/1/171/364f7ce98d396ddabbd374f8c2f84953_o2_featured_v2.jpg?output-format=webp"
+        alt="Mc Donald's Burger" 
+      ></img>
+      <h1>Mc Donald's</h1>
+      <h2>Burger,Wraps,Fast Food,..</h2>
+      <h2>4.3 ⭐</h2> }  */}
+    </div>
+  );
+};
+/*
+const Header = () => [
+  <div className="header ">
+    <Title />
+    <div className="nav-items">
+      <ul>
+        <li>HOME</li>
+        <li>ABOUT US</li>
+        <li>CONTACT</li>
+        <li>CART</li>
+      </ul>
+    </div>
+  </div>,
+];
+*/
+// --------------------------------------------
+
+const Body = () => (
+<div className="search_container">
+      <input
+        type="text"
+        className="search_input"
+        placeholder="search"
+        value={secrh}
+        //onChange={(e) => console.log("jhdbfscdvdv")}
+        onChange={(e) => onChangeInput}
+      />
+      <button className="btn">Search</button>
+    </div>
+
+
+
+
+
+
+
+
+  <div className="restraunt_list">
+    {restraunt_list.map((restraunt) => {
+      return <RestrauntCard {...restraunt.data} key={restraunt.data.id} />;
+    })}
+
+    {/* <RestrauntCard {...restraunt_list[0].data} />
+    <RestrauntCard {...restraunt_list[1].data} />
+    <RestrauntCard {...restraunt_list[2].data} /> */}
+
+    {/**      different methods 
+    *  <RestrauntCard restaurant={restraunt_list[2]} />
+    *  {RestrauntCard(restraunt_list[1])} <->with normal function call works same as below 
+    
+      */}
+  </div>
+  </>
+);
+
+//---------------------------------------------------------
+const Footer = () => ({});
+
+const App_layout = () => (
+  <>
+    {/* <Obj.Header  /> */}
+    <Header key={"head"} />
+    <Body key={"body"} />
+    {
+      //<Footer />
+    }
+  </>
+);
+
+//Initializing Root and render
+const Root = ReactDOM.createRoot(document.getElementById("root"));
+Root.render(<App_layout key={"app_layout"} />);
+
+
+/*
+-React uses one way data binding
+
+
+
+*/
