@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { restraunt_list } from "../config"; what is .. in "../config"
+import { restraunt_list } from "../config"; what is .. in "../config"=> used under same folder.
 
 // Default import
 
@@ -170,7 +170,40 @@ Root.render(<App_layout key={"app_layout"} />);
 
 /*
 -React uses one way data binding
+-react tracks only local states variables ,react does not track local variables
+-react needs to know which variable needs to be in sync  so we use useState variable
+*Their are 2 ways when components re-render ,either my "STATES" changes or my "PROPS" changes.
 
+*/
+
+/*
+-useEffect() hook :  useEffect(call_back func, []->dependency array);
 
 
 */
+
+
+Make main header
+Default Shortcut:
+
+Shift + Alt + X
+
+Default Style:
+
+/* -------------------------------------------------------------------------- */
+/*                                Example text                                */
+/* -------------------------------------------------------------------------- */
+
+Make subheader
+Default Shortcut:
+
+Alt + X
+
+Default Style:
+
+/* ------------------------------ Example text ------------------------------ */
+
+Insert solid line
+Default Shortcut:
+
+Alt + Y

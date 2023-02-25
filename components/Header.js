@@ -1,6 +1,8 @@
 // export const Title = () => (
-  
- const Title = () => (
+
+import { useState } from "react";
+
+const Title = () => (
   <a href="/">
     <img
       className="logo"
@@ -10,9 +12,13 @@
     />
   </a>
 );
+// const loggedInUser = () => {
+//   return false;
+// };
 
-
-const Header = () => [
+const Header = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  return (
     <div className="header ">
       <Title />
       <div className="nav-items">
@@ -23,8 +29,19 @@ const Header = () => [
           <li>CART</li>
         </ul>
       </div>
-    </div>,
-  ];
+      
+      {
+        // JS expressions only
+        //(a=10,console.log(a))
+        isLoggedIn ? (
+          <button onClick={()=>setIsLoggedIn(false)}>sign out</button>
+        ) : (
+          <button onClick={()=>setIsLoggedIn(true)}> sign in </button>
+        )
+      }
+    </div>
+  );
+};
 
 /**       Two ways of exporting
  1.export default Title;
