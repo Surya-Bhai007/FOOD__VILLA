@@ -1,16 +1,13 @@
-/**           CONVENTION
- * PUT HARD CODED THINGS IN CONFIG FILES
- * REASON:suppose  hard coded things such as links etc
- * are needed in 15-20 components out of 2000,3000 components : one path as copy that link in every component ,
- * other is to import it from one place (kinda GLOBAL PLACE) where links etc things have placed .
- *
- * In some companies it is called as "constants.js" file
- */
+export const IMG_LOGO_URL =
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUrc7dcB_TvFBUF30OGmokTig0XbVRWaobLNQDXHEatw&s";
 
+//   API
 export const IMG_CDN_URL =
   "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/";
+export const IMG_CDN_menu_url =
+  "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/";
 
-export const restraunt_list = [
+export const restaurant_list_hardcoded = [
   {
     type: "restaurant",
     data: {
@@ -1851,3 +1848,9 @@ export const restraunt_list = [
     },
   },
 ];
+
+export const Main_api_link =
+  "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.6262714&lng=77.09665059999999&page_type=DESKTOP_WEB_LISTING";
+
+export const resMenu = `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.6290921&lng=77.09026150000001&restaurantId=`;
+
