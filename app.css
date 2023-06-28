@@ -91,10 +91,11 @@ body {
   margin: 0 18rem;
 }
 .restaurants_mnu_info {
-  list-style-type:none ;
-  gap:2px;
+  list-style-type: none;
+  gap: 2px;
 }
 .veg-non-vegLogo {
   width: 2rem;
   height: auto;
+  background-blend-mode: inherit;
 }

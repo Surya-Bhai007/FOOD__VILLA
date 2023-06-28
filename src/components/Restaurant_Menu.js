@@ -1,23 +1,19 @@
-import { useEffect, useState } from "react";
-import { IMG_CDN_menu_url, resMenu } from "../assets/constants";
+import { useEffect } from "react";
+
 import { MenuList } from "../assets/MenuList";
 import { useParams } from "react-router-dom";
+import useRestaurantMenu from "../assets/useRestaurantMenu";
 
 const Restaurant_Menu = () => {
-  const [resInfo, setResInfo] = useState(null);
-
   const { res_id } = useParams();
   console.log(res_id);
+
+  const  resInfo  = useRestaurantMenu(res_id);
+
+  //---------------------------------------------------------------------------------------------
   // console.log(res_id);
-  const getMenu = async () => {
-    const data = await fetch(resMenu + `${res_id}&submitAction=ENTER`);
-    const json = await data.json();
-    setResInfo(json?.data);
-    //console.log(json);
-    //console.log(json?.data?.cards[0]?.card?.card?.info);
-  };
+
   useEffect(() => {
-    getMenu();
     <MenuList />;
   }, []);
 
@@ -55,13 +51,12 @@ const Restaurant_Menu = () => {
             {sla?.deliveryTime + " minutes"}
           </h3>
         </li>
-        
+
         <li>{costForTwoMessage}</li>
       </ul>
       {/* --------------------------------------------- */}
       <ul className="item-list">
         {itemCards.map((item) => (
-          
           <MenuList item={item} key={item?.card?.info?.id} />
         ))}
       </ul>
